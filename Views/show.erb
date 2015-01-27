@@ -1,0 +1,29 @@
+<html>
+
+<body>
+  <h1>Student</h1>
+    <a href="/students">Go home</a>
+
+    <p><%= selected_student[:name] %> is <%= selected_student[:age] %> years old.
+    Currently loves to cast <%= selected_student[:spell] %>.
+    </p>
+
+    <h3>Update information(Must state all information during update)</h3>
+
+    <form action="/students/<%= selected_student[:id] %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <input type="text" name="newname" placeholder="Update your name" required>
+      <input type="text" name="newage" placeholder="Your age" required>
+      <input type="text" name="newspell" placeholder="Favorite spell" required>
+      <button>Update Now</button>
+    </form>
+
+    <p><%= selected_student[:name] %> can be removed here:</p>
+    <form action="/students/<%= selected_student[:id] %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Remove Student</button>
+    </form>
+
+  </body>
+
+</html>

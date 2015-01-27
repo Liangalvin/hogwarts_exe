@@ -1,0 +1,33 @@
+<html>
+
+  <body>
+
+  <h3>Register here</h3>
+    <form action="/register" method="post">
+      <input type="text" name="name" placeholder="First name, Last Name"
+      required>
+      <input type="text" name="age" placeholder="State your age" required>
+      <input type="text" name="spell" placeholder="Favorite spell" required>
+      <button>Register! NOW! or Eat Feces!</button>
+    </form>
+
+    <p>Search for a student name</p>
+      <form actions="/search" method="get">
+        <input type="text" name="search" placeholder="student name">
+        <button>Search for student</button>
+      </form>
+
+    <h2>Current Students:</h2>
+
+    <ul>
+
+    <% students.each do |key, student| %>
+      <li><%= student[:name]%> is <%= student[:age] %> years old, who loves to cast <%= student[:spell] %>. Student ID#
+        <a href="/students/<%= student[:id] %>"><%= student[:id] %></a>
+      </li>
+      <% end %>
+
+    </ul>
+  </body>
+
+</html>
